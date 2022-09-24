@@ -552,11 +552,16 @@ namespace RealTime.CustomAI
                 case ItemClass.Service.Monument:
                 case ItemClass.Service.VarsitySports:
                 case ItemClass.Service.Museums:
+                case ItemClass.Service.ServicePoint:
                     return false;
 
                 case ItemClass.Service.PlayerEducation:
                 case ItemClass.Service.PlayerIndustry:
                     if (buildingManager.IsAreaMainBuilding(buildingId))
+                    {
+                        return false;
+                    }
+                    else if (buildingManager.IsAreaResidentalBuilding(buildingId))
                     {
                         return false;
                     }
